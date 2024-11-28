@@ -5,7 +5,9 @@ import { useState } from "react";
 export const SelectPlan = () => {
   const [monthlyPlan, setMonthlyPlan] = useState(true);
 
+  // toggle between monthly and yearly prices
   const handleTogglePay = () => setMonthlyPlan((prev) => !prev);
+
   return (
     <>
       <div className="my-5">

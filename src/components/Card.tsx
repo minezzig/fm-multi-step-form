@@ -1,7 +1,8 @@
 import Header from "./Header";
-// import PersonalInfo from "./PersonalInfo";
-import Navigation from "./Navigation";
+import PersonalInfo from "./PersonalInfo";
 import { SelectPlan } from "./SelectPlan";
+import { AddOns } from "./AddOns";
+import Navigation from "./Navigation";
 
 export default function Card() {
   return (
@@ -13,7 +14,8 @@ export default function Card() {
         <div className="flex flex-col">
           {/* whichever card i want to view */}
           {/* <PersonalInfo /> */}
-          <SelectPlan />
+          {/* <SelectPlan /> */}
+          <AddOns />
           <Navigation />
         </div>
       </div>
