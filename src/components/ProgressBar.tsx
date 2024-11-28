@@ -5,12 +5,17 @@ interface ProgressBarProps {
 }
 
 export const ProgressBar = ({ active, step, title }: ProgressBarProps) => {
-
   return (
-    <div
-      className={`${active ? "bg-primary4 text-primary2" : "bg-primary2 text-primary4"} border border-primary4 rounded-full flex h-10 w-10 items-center justify-center font-bold`}
-    >
-      {step}
+    <div className="flex gap-5 items-center">
+      <div
+        className={`${active ? "bg-primary4 text-primary2" : "bg-primary2 text-primary4"} flex h-8 w-8 items-center justify-center rounded-full border border-primary4 font-bold`}
+      >
+        {step}
+      </div>
+      <div className="hidden md:block uppercase">
+        <div className="text-primary3 text-xs">Step {step}</div>
+        <div className="text-primary4 font-bold  text-sm">{title}</div>
+      </div>
     </div>
   );
 };

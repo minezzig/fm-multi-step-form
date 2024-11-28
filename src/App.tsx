@@ -1,15 +1,9 @@
-import Header from "./components/Header";
-import Navigation from "./components/Navigation";
-import PersonalInfo from "./components/PersonalInfo";
+import Card from "./components/Card";
 
 function App() {
   return (
-    <div className="bg-neutral3 w-full h-dvh">
-      <Header />
-      <PersonalInfo />
-
-       <Navigation />
- 
+    <div className="m-auto h-dvh w-full max-w-[1000px] bg-neutral3 place-content-center">
+      <Card />
     </div>
   );
 }

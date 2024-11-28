@@ -1,9 +1,9 @@
-import { Button } from "./button";
+import { Button } from "./Button";
 
 const Navigation = () => {
   return (
-    <div className="flex w-full items-center justify-end p-5 absolute bottom-0 bg-neutral5">
-      <Button text={"Next Step"} />
+    <div className="fixed bottom-0 left-0 mt-auto flex w-full items-center justify-end bg-neutral5 p-5 md:static md:mb-3 md:p-0 md:pb-0">
+      <Button text={"Next Step"} action={() => null} />
     </div>
   );
 };
