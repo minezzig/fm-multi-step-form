@@ -8,11 +8,18 @@ interface Plan {
 interface PlanProps {
   plan: Plan;
   monthlyPlan: boolean;
+  selectedPlan: number;
+  setSelectedPlan: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const Plan = ({ plan, monthlyPlan }: PlanProps) => {
+export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanProps) => {
+  // hanlde selected a plan 
+  const handleSelectPlan = (id: number) => {
+    setSelectedPlan(id)
+  }
   return (
-    <div className="flex-1 rounded-lg border border-primary2 bg-neutral3 p-3 flex md:flex-col flex-row gap-3">
+    <div className={`flex-1 rounded-lg border  bg-neutral3 p-3 flex md:flex-col flex-row gap-3 cursor-pointer ${selectedPlan === plan.id ? "border-primary2" : "border-primary3"}`} 
+    onClick={() => handleSelectPlan(plan.id)}>
       <div>
         <img src={plan.icon} alt={plan.plan} />
       </div>

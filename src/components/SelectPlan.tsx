@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export const SelectPlan = () => {
   const [monthlyPlan, setMonthlyPlan] = useState(true);
+  const [selectedPlan, setSelectedPlan] = useState(1);
 
   // toggle between monthly and yearly prices
   const handleTogglePay = () => setMonthlyPlan((prev) => !prev);
@@ -18,7 +19,7 @@ export const SelectPlan = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-3">
         {plans.map((plan) => (
-          <Plan plan={plan} monthlyPlan={monthlyPlan} key={plan.id} />
+          <Plan plan={plan} monthlyPlan={monthlyPlan} key={plan.id} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
         ))}
       </div>
       <div className="mt-5 flex items-center justify-center gap-5 rounded-lg bg-neutral3 p-3 font-bold">
