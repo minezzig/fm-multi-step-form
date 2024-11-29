@@ -23,13 +23,13 @@ export const FinishingUp = () => {
           Double-check everything looks OK before confirming
         </p>
       </div>
-      <div className="mt-5 flex flex-col gap-5 rounded-lg bg-neutral3 p-3">
+      <div className="mt-5 flex flex-col gap-5 rounded-lg bg-neutral3 p-3 md:p-5">
         <div className="flex items-center justify-between">
           <div>
             <div>
               {order.plan} ({order.frequency})
             </div>
-            <div className="text-neutral1"><a href="">Change</a></div>
+            <div className="text-neutral1 underline hover:text-primary2"><a href="">Change</a></div>
           </div>
           <div className="text-primary font-bold">
             +${order.price}/{order.frequency === "Monthly" ? "mo" : "yr"}
