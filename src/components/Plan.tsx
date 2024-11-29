@@ -13,7 +13,7 @@ interface PlanProps {
 }
 
 export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanProps) => {
-  // hanlde selected a plan 
+  // hanlde selected a plan
   const handleSelectPlan = (id: number) => {
     setSelectedPlan(id)
   }

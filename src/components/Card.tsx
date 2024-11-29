@@ -3,6 +3,7 @@ import PersonalInfo from "./PersonalInfo";
 import { SelectPlan } from "./SelectPlan";
 import { AddOns } from "./AddOns";
 import Navigation from "./Navigation";
+import { FinishingUp } from "./FinishingUp";
 
 export default function Card() {
 
@@ -13,11 +14,14 @@ export default function Card() {
           <Header />
         </div>
         <div className="flex flex-col">
-          {/* whichever card i want to view */}
-          {/* <PersonalInfo /> */}
-          <SelectPlan />
-          {/* <AddOns /> */}
-          <Navigation />
+          <form>
+            {/* whichever card i want to view */}
+            {/* <PersonalInfo /> */}
+            {/* <SelectPlan /> */}
+            {/* <AddOns /> */}
+            <FinishingUp />
+            <Navigation />
+          </form>
         </div>
       </div>
     </div>
