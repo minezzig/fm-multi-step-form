@@ -13,6 +13,7 @@ const InputField = ({label, placeholder, name}: InputFieldProps) => {
 
   const handleOnChange = (e) => {
     setOrder(prev => ({...prev, info: {...prev.info, [e.target.name]: e.target.value}}))
+    console.log(order);
 }
   
   return (

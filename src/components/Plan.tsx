@@ -1,3 +1,5 @@
+import { useOrder } from "../context/OrderContext";
+
 interface Plan {
   id: number;
   plan: string;
@@ -13,9 +15,17 @@ interface PlanProps {
 }
 
 export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanProps) => {
+  const {order, setOrder} = useOrder();
+  
   // hanlde selected a plan
   const handleSelectPlan = (id: number) => {
     setSelectedPlan(id)
+
+    const frequency = monthlyPlan ? "monthly" : "yearly";
+    const price = plan.price[frequency];
+
+    // add to order object context
+    setOrder(prev => ({...prev, plan: {planName: plan.plan, price: price, frequency: frequency}}));
   }
   return (
     <div className={`flex-1 rounded-lg border  bg-neutral3 p-3 flex md:flex-col flex-row gap-3 cursor-pointer ${selectedPlan === plan.id ? "border-primary2" : "border-primary3"}`} 
