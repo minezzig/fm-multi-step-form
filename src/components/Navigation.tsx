@@ -7,6 +7,7 @@ interface NavigationProps {
 const Navigation = ({ step, setStep }: NavigationProps) => {
   const handleNextStep = () => {
     setStep((prev) => (prev < 4 ? prev + 1 : prev));
+
   };
 
   const handlePrevStep = () => {

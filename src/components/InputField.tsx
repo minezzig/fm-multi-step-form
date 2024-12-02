@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { useOrder } from "../context/OrderContext";
 
 interface InputFieldProps {
     label: string;
     placeholder: string;
+    name: string;
 }
 
-const InputField = ({label, placeholder}: InputFieldProps) => {
-
+const InputField = ({label, placeholder, name}: InputFieldProps) => {
   const [error, setError] = useState(false);
+  const {order, setOrder} = useOrder();
+
+  const handleOnChange = (e) => {
+    setOrder(prev => ({...prev, info: {...prev.info, [e.target.name]: e.target.value}}))
+}
   
   return (
     <div className="flex flex-col gap-1">
@@ -18,6 +24,8 @@ const InputField = ({label, placeholder}: InputFieldProps) => {
       <input
         className="border-neutral2 rounded-md border p-2 focus:outline-primary2"
         placeholder={placeholder}
+        name={name}
+        onChange={handleOnChange}
       />
     </div>
   );

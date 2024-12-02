@@ -6,9 +6,11 @@ import Navigation from "./Navigation";
 import { FinishingUp } from "./FinishingUp";
 import { Thankyou } from "./Thankyou";
 import { useState } from "react";
+import { useOrder } from "../context/OrderContext";
 
 export default function Card() {
   const [step, setStep] = useState<number>(1);
+  const {order, setOrder} = useOrder();
 
   // use Switch statement to display page currently working on
   const renderStep = () => {

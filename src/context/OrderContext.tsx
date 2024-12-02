@@ -13,7 +13,7 @@ interface OrderContextType {
 
 const defaultOrder = {
   info: { name: "", email: "", phone: "" },
-  plan: { plan: "", price: 0, frequency: "" },
+  plan: { planName: "", price: 0, frequency: "" },
   addons: [{addOn: "", price: 0}],
 };
 
