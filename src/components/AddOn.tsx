@@ -32,6 +32,7 @@ console.log(order)
         type="checkbox"
         onClick={() => handleSelectAddOn(addOn)}
         className="h-5 w-5 accent-primary2"
+        checked={order.addOns.find((entry) => entry.id === addOn.id) ? true : false}
       />
       <div>
         <div className="font-bold text-primary1">{addOn.item}</div>
