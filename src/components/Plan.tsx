@@ -9,24 +9,20 @@ interface Plan {
 
 interface PlanProps {
   plan: Plan;
-  monthlyPlan: boolean;
   selectedPlan: number;
   setSelectedPlan: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanProps) => {
+export const Plan = ({ plan, selectedPlan, setSelectedPlan }: PlanProps) => {
   const {order, setOrder} = useOrder();
-  
+  const {frequency} = order.plan;
+
   // hanlde selected a plan
   const handleSelectPlan = (id: number) => {
     setSelectedPlan(id)
 
-    // retrive specific data for order object
-    const frequency = monthlyPlan ? "monthly" : "yearly";
-    const price = plan.price[frequency];
-
     // add to order object context
-    setOrder(prev => ({...prev, plan: {planName: plan.plan, price: price, frequency: frequency}}));
+    setOrder(prev => ({...prev, plan: {planName: plan.plan, price: plan.price[frequency], frequency: frequency}}));
   }
   return (
     <div className={`flex-1 rounded-lg border  bg-neutral3 p-3 flex md:flex-col flex-row gap-3 cursor-pointer ${selectedPlan === plan.id ? "border-primary2" : "border-primary3"}`} 
@@ -37,9 +33,9 @@ export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanP
       <div>
         <div className="font-bold text-primary2">{plan.plan}</div>
         <div className="text-neutral1">
-          ${monthlyPlan ? `${plan.price.monthly}/mo` : `${plan.price.yearly}/yr`}
+          ${frequency === "monthly" ? `${plan.price.monthly}/mo` : `${plan.price.yearly}/yr`}
         </div>
-        <div className={`text-xs ${monthlyPlan ? "hidden" : "block"}`}>
+        <div className={`text-xs ${frequency === "monthly" ? "hidden" : "block"}`}>
           2 months free
         </div>
       </div>
