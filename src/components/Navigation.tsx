@@ -1,25 +1,12 @@
 import { Button } from "./Button";
 import { NavigationProps } from "../types/types";
-import { useOrder } from "../context/OrderContext";
 
-const Navigation = ({ step, setStep }: NavigationProps) => {
-  const { order } = useOrder();
+const Navigation = ({ step, setStep, verifyInput }: NavigationProps) => {
 
   const handleNextStep = () => {
-    // check for errors
-    if (step === 1) {
-      if (!order.info.name) {
-        return;
-      }
-      if (!order.info.email) {
-        return;
-      }
-      if (!order.info.phone) {
-        return;
-      }
-    }
-
     // if no errors, proceed to next step
+    const isValid = verifyInput();
+    if (!isValid) return;
     setStep((prev) => (prev < 4 ? prev + 1 : prev));
   };
 

@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { useOrder } from "../context/OrderContext";
 import { InputFieldProps } from "../types/types";
 
-const InputField = ({label, placeholder, name}: InputFieldProps) => {
-  const [error, setError] = useState(true);
+const InputField = ({label, placeholder, name, error}: InputFieldProps) => {
   const {setOrder} = useOrder();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {

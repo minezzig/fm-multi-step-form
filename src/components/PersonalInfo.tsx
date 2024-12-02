@@ -1,6 +1,7 @@
+import { PersonalInfoProps } from "../types/types";
 import InputField from "./InputField";
 
-function PersonalInfo() {
+function PersonalInfo({error}: PersonalInfoProps) {
 return (
     <>
       <div className="my-5">
@@ -10,16 +11,18 @@ return (
         </p>
       </div>
       <div className="flex flex-col gap-3">
-        <InputField label={"Name"} placeholder={"e.g. Stephen King"} name={"name"}/>
+        <InputField label={"Name"} placeholder={"e.g. Stephen King"} name={"name"} error={error.name}/>
         <InputField
           label={"Email Address"}
           placeholder={"e.g. stephenking@lorem.com"}
           name={"email"}
+          error={error.email}
         />
         <InputField
           label={"Phone Number"}
           placeholder={"e.g. +1 234 567 890"}
           name={"phone"}
+          error={error.phone}
         />
       </div>
 

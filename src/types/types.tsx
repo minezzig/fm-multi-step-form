@@ -17,12 +17,23 @@ export interface ButtonProps {
   export interface NavigationProps {
     step: number;
     setStep: React.Dispatch<React.SetStateAction<number>>;
+    verifyInput: () => boolean;
   }
 
+  export interface ErrorType {
+    name: string;
+    email: string;
+    phone: string;
+  }
+
+  export interface PersonalInfoProps {
+    error: ErrorType;
+  }
   export interface InputFieldProps {
     label: string;
     placeholder: string;
     name: string;
+    error: string;
 }
 
 export interface PlanType {
