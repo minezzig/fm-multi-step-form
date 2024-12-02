@@ -1,10 +1,17 @@
 interface ButtonProps {
-    text: string;
-    action: () => null;
+  text: string;
+  action: () => void;
+  className?: string;
 }
 
-export const Button = ({text, action}: ButtonProps) => {
+export const Button = ({ text, action, className = "" }: ButtonProps) => {
   return (
-    <button onClick={action} type="submit" className="cursor-pointer px-3 py-2  rounded-md bg-primary1 text-primary4">{text}</button>
-  )
-}
+    <button
+      onClick={action}
+      type="submit"
+      className={`cursor-pointer rounded-md bg-primary1 px-3 py-2 text-primary4 active:opacity-80 ${className}`}
+    >
+      {text}
+    </button>
+  );
+};

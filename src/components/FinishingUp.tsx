@@ -1,9 +1,8 @@
 export const FinishingUp = () => {
   //!static order
   const order = {
-    plan: "Arcade",
-    price: 90,
-    frequency: "Yearly",
+    info: "",
+    plan: {planName:"Arcade", price: 90, frequency: "Yearly"},
     addOns: [
       { addOn: "Online service", price: 10 },
       { addOn: "Larer stroage", price: 20 },
@@ -12,7 +11,7 @@ export const FinishingUp = () => {
 
   // calculate total price
   const calcTotal = () =>
-    order.price +
+    order.plan.price +
     order.addOns.reduce((sum, addOn) => (sum = sum + addOn.price), 0);
 
   return (
@@ -27,30 +26,30 @@ export const FinishingUp = () => {
         <div className="flex items-center justify-between">
           <div>
             <div>
-              {order.plan} ({order.frequency})
+              {order.plan.planName} ({order.plan.frequency})
             </div>
             <div className="text-neutral1 underline hover:text-primary2"><a href="">Change</a></div>
           </div>
           <div className="text-primary font-bold">
-            +${order.price}/{order.frequency === "Monthly" ? "mo" : "yr"}
+            +${order.plan.price}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
           </div>
         </div>
         <hr />
         <div className="flex flex-col gap-3">
           {order.addOns.map((addOn) => (
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between" key={addOn.addOn}>
               <div className="text-neutral1">{addOn.addOn}</div>
               <div className="text-primary1">
-                +${addOn.price}/{order.frequency === "Monthly" ? "mo" : "yr"}
+                +${addOn.price}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
               </div>
             </div>
           ))}
         </div>
       </div>
       <div className="flex items-center justify-between px-3 py-5">
-        <div className="text-neutral1">Total (per {order.frequency === "Monthly" ? "month" : "year"})</div>
+        <div className="text-neutral1">Total (per {order.plan.frequency === "Monthly" ? "month" : "year"})</div>
         <div className="text-primary2 font-bold">
-          +${calcTotal()}/{order.frequency === "Monthly" ? "mo" : "yr"}
+          +${calcTotal()}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
         </div>
       </div>
     </>
