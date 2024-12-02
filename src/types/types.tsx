@@ -5,9 +5,13 @@ export interface ButtonProps {
   }
 
   export interface ProgressBarProps {
-    active: boolean;
+    currentStep: number;
     step: number;
     title: string;
+  }
+
+  export interface HeaderProps {
+    step: number;
   }
 
   export interface NavigationProps {
@@ -44,5 +48,5 @@ export interface AddOnProps {
   }
 
 export interface FinishingUpProps {
-  setStep: (step: number) => null;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
 }

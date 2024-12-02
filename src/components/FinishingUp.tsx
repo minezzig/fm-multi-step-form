@@ -23,7 +23,7 @@ export const FinishingUp = ({setStep}: FinishingUpProps) => {
             <div>
               {order.plan.planName} ({order.plan.frequency})
             </div>
-            <div className="text-neutral1 underline hover:text-primary2" onClick={() => setStep(2)}>Change</div>
+            <div className="text-neutral1 underline hover:text-primary2 cursor-pointer" onClick={() => setStep(2)}>Change</div>
           </div>
           <div className="text-primary font-bold">
             +${order.plan.price}/{order.plan.frequency === "monthly" ? "mo" : "yr"}

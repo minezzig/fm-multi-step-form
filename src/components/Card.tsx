@@ -32,7 +32,7 @@ export default function Card() {
     <div className="m-5 rounded-lg bg-neutral5 p-5 shadow-xl md:h-[600px]">
       <div className="h-full md:flex md:gap-20">
         <div className="z-0 absolute left-0 top-0 w-full md:static md:min-w-[275px] md:max-w-[275px]">
-          <Header />
+          <Header step={step}/>
         </div>
         <div className="flex h-full w-full flex-col">
           {renderStep()}

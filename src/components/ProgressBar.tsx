@@ -1,10 +1,10 @@
 import { ProgressBarProps } from "../types/types";
 
-export const ProgressBar = ({ active, step, title }: ProgressBarProps) => {
+export const ProgressBar = ({ currentStep, step, title }: ProgressBarProps) => {
   return (
     <div className="flex gap-5 items-center">
       <div
-        className={`${active ? "bg-primary4 text-primary2" : "bg-primary2 text-primary4"} flex h-8 w-8 items-center justify-center rounded-full border border-primary4 font-bold`}
+        className={`${currentStep === step ? "bg-primary4 text-primary2" : "bg-primary2 text-primary4"} flex h-8 w-8 items-center justify-center rounded-full border border-primary4 font-bold`}
       >
         {step}
       </div>
