@@ -15,7 +15,7 @@ const InputField = ({label, placeholder, name, error}: InputFieldProps) => {
         <div className={`text-primary5 text-xs font-bold ${error ? "block" : "hidden"}`}>This field is required</div>
       </div>
       <input
-        className="border-neutral2 rounded-md border p-2 focus:outline-primary2"
+        className={`border-neutral2 rounded-md border p-2 focus:outline-primary2 ${error && "border-primary5"}`}
         placeholder={placeholder}
         name={name}
         onChange={handleOnChange}

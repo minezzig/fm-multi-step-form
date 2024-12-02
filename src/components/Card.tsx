@@ -8,6 +8,8 @@ import { Thankyou } from "./Thankyou";
 import { useState } from "react";
 import { useOrder } from "../context/OrderContext";
 import { ErrorType } from "../types/types";
+import { emailValidator} from "../utils/emailValidator";
+import { phoneValidator } from "../utils/phoneValidator";
 
 export default function Card() {
   const [step, setStep] = useState<number>(1);
@@ -24,11 +26,11 @@ export default function Card() {
         newError.name = "This field is required"
         isValid = false;
       }
-      if (!order.info.email) {
+      if (!order.info.email || !emailValidator(order.info.email)) {
         newError.email = "This field is required"
         isValid = false;
       }
-      if (!order.info.phone) {
+      if (!order.info.phone || !phoneValidator(order.info.phone)) {
         newError.phone = "This field is required"
         isValid = false;
       }
