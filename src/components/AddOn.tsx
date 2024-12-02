@@ -26,11 +26,12 @@ export const AddOn = ({ addOn }: AddOnProps) => {
 console.log(order)
   return (
     <div
-      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2" : "border-primary3"} bg-neutral3 p-3`}
+      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2" : "border-primary3"} bg-neutral3 p-3 cursor-pointer`}
+      onClick={() => handleSelectAddOn(addOn)}
     >
       <input
         type="checkbox"
-        onClick={() => handleSelectAddOn(addOn)}
+        
         className="h-5 w-5 accent-primary2"
         checked={order.addOns.find((entry) => entry.id === addOn.id) ? true : false}
       />
