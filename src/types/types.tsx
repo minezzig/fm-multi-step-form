@@ -42,3 +42,7 @@ export interface AddOnType {
 export interface AddOnProps {
     addOn: AddOnType;
   }
+
+export interface FinishingUpProps {
+  setStep: (step: number) => null;
+}

@@ -1,6 +1,7 @@
 import { useOrder } from "../context/OrderContext";
+import { FinishingUpProps } from "../types/types";
 
-export const FinishingUp = () => {
+export const FinishingUp = ({setStep}: FinishingUpProps) => {
   const {order} = useOrder();
 
   // calculate total price
@@ -22,7 +23,7 @@ export const FinishingUp = () => {
             <div>
               {order.plan.planName} ({order.plan.frequency})
             </div>
-            <div className="text-neutral1 underline hover:text-primary2"><a href="">Change</a></div>
+            <div className="text-neutral1 underline hover:text-primary2" onClick={() => setStep(2)}>Change</div>
           </div>
           <div className="text-primary font-bold">
             +${order.plan.price}/{order.plan.frequency === "monthly" ? "mo" : "yr"}

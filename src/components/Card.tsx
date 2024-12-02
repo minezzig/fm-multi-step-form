@@ -20,7 +20,7 @@ export default function Card() {
       case 3:
         return <AddOns />;
       case 4:
-        return <FinishingUp />;
+        return <FinishingUp setStep={setStep}/>;
       case 5:
         return <Thankyou />;
       default:

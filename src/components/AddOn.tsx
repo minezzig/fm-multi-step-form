@@ -31,9 +31,9 @@ console.log(order)
     >
       <input
         type="checkbox"
-        
         className="h-5 w-5 accent-primary2"
         checked={order.addOns.find((entry) => entry.id === addOn.id) ? true : false}
+        readOnly
       />
       <div>
         <div className="font-bold text-primary1">{addOn.item}</div>
