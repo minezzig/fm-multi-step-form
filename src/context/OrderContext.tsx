@@ -2,8 +2,8 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 interface OrderType {
   info: { name: string; email: string; phone: string };
-  plan: { planName: string; price: number; frequency: string };
-  addons: {addOn: string, price: number}[];
+  plan: { planName: string; price: number; frequency: "monthly" | "yearly" };
+  addOns: {id: number; addOn: string, price: number}[];
 }
 
 interface OrderContextType {
@@ -13,8 +13,8 @@ interface OrderContextType {
 
 const defaultOrder = {
   info: { name: "", email: "", phone: "" },
-  plan: { planName: "", price: 0, frequency: "" },
-  addons: [{addOn: "", price: 0}],
+  plan: { planName: "", price: 0, frequency: "monthly" },
+  addOns: [],
 };
 
 //create context

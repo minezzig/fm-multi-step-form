@@ -1,11 +1,9 @@
-import { useState } from "react";
 import AddOnData from "../data/add-ons.json";
 import { AddOn } from "./AddOn";
 
-export const AddOns = () => {
-  const [selectedAddOns, setSelectedAddOns] = useState<number[]>([]);
 
-  
+export const AddOns = () => {
+    
   return (
     <>
       <div className="my-5">
@@ -16,7 +14,7 @@ export const AddOns = () => {
       </div>
       <div className="flex flex-col gap-3">
         {AddOnData.map((addOn) => (
-          <AddOn addOn={addOn} key={addOn.id} selectedAddOns={selectedAddOns} setSelectedAddOns={setSelectedAddOns}/>
+          <AddOn addOn={addOn} key={addOn.id}/>
         ))}
       </div>
     </>

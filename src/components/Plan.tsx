@@ -21,6 +21,7 @@ export const Plan = ({ plan, monthlyPlan, selectedPlan, setSelectedPlan }: PlanP
   const handleSelectPlan = (id: number) => {
     setSelectedPlan(id)
 
+    // retrive specific data for order object
     const frequency = monthlyPlan ? "monthly" : "yearly";
     const price = plan.price[frequency];
 

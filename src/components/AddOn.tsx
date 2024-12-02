@@ -1,3 +1,5 @@
+import { useOrder } from "../context/OrderContext";
+
 interface AddOn {
   id: number;
   item: string;
@@ -7,27 +9,38 @@ interface AddOn {
 
 interface AddOnProps {
   addOn: AddOn;
-  selectedAddOns: number[];
-  setSelectedAddOns: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export const AddOn = ({ addOn, selectedAddOns, setSelectedAddOns }: AddOnProps) => {
-  const monthlyPlan = true; //! HARD CODED, access from context 
+export const AddOn = ({ addOn }: AddOnProps) => {
+  const { order, setOrder } = useOrder();
 
-  // add addOn to array, or remove if unselected
-  const handleSelectAddOn = (id: number) => {
-    setSelectedAddOns(prev => 
-        prev.includes(id) ? prev.filter(addOnId => addOnId !== id) : [...prev, id]
+  // add addOn to order, or remove if unselected
+  const handleSelectAddOn = (addOn: AddOn) => {
+    const newAddOn = {
+      id: addOn.id,
+      addOn: addOn.item,
+      price: addOn.price[order.plan.frequency],
+    };
+
+    setOrder((prev) =>
+      prev.addOns.find((orderAddOn) => orderAddOn.id === addOn.id)
+        ? {
+            ...prev,
+            addOns: prev.addOns.filter(
+              (orderAddOn) => orderAddOn.id !== addOn.id,
+            ),
+          }
+        : { ...prev, addOns: [...prev.addOns, newAddOn] },
     );
-  }
-
+  };
+console.log(order)
   return (
     <div
-      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border ${selectedAddOns.includes(addOn.id) ? "border-primary2" : " border-primary3"} bg-neutral3 p-3 `}
+      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2" : "border-primary3"} bg-neutral3 p-3`}
     >
       <input
         type="checkbox"
-        onClick={() => handleSelectAddOn(addOn.id)}
+        onClick={() => handleSelectAddOn(addOn)}
         className="h-5 w-5 accent-primary2"
       />
       <div>
@@ -36,9 +49,10 @@ export const AddOn = ({ addOn, selectedAddOns, setSelectedAddOns }: AddOnProps) 
       </div>
       <div className="ml-auto text-sm text-primary2">
         +$
-        {monthlyPlan ? `${addOn.price.monthly}/mo` : `${addOn.price.yearly}/yr`}
+        {order.plan.frequency === "monthly"
+          ? `${addOn.price.monthly}/mo`
+          : `${addOn.price.yearly}/yr`}
       </div>
-
     </div>
   );
 };
