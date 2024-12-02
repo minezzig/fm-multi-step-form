@@ -1,8 +1,9 @@
 import { Button } from "./Button";
 import { NavigationProps } from "../types/types";
+import { useOrder } from "../context/OrderContext";
 
 const Navigation = ({ step, setStep, verifyInput }: NavigationProps) => {
-
+const {order} = useOrder();
   const handleNextStep = () => {
     // if no errors, proceed to next step
     const isValid = verifyInput();
@@ -16,6 +17,7 @@ const Navigation = ({ step, setStep, verifyInput }: NavigationProps) => {
 
   const handleSubmit = () => {
     setStep(5);
+    console.log(order)
   };
 
   return (

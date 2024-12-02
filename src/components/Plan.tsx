@@ -12,7 +12,7 @@ export const Plan = ({ plan }: PlanProps) => {
     const orderPlanObject = {id: plan.id, planName: plan.plan, price: plan.price[frequency], frequency: frequency}
 
     // add to order object context
-    setOrder(prev => ({...prev, plan: orderPlanObject}));
+    setOrder(prev => ({...prev, plan: orderPlanObject, addOns:[]}));
   }
   return (
     <div className={`flex-1 rounded-lg border   p-3 flex md:flex-col flex-row gap-3 cursor-pointer hover:border-primary2 transition-all ${order.plan.id === plan.id ? "border-primary2 bg-neutral3" : "border-primary3"}`} 
