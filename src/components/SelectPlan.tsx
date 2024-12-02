@@ -1,17 +1,16 @@
 import { Plan } from "./Plan";
 import plans from "../data/plans.json";
-import { useState } from "react";
 import { useOrder } from "../context/OrderContext";
 
 export const SelectPlan = () => {
   const {order, setOrder} = useOrder();
-  const [selectedPlan, setSelectedPlan] = useState(1);
-  
+  // destructure frequency for ease of use
   const {frequency} = order.plan;
-  // toggle between monthly and yearly prices
+  
+  // toggle between monthly and yearly prices.  clears order when changed
   const handleToggleFrequency = () => {
     const toggleFrequency = frequency === "monthly" ? "yearly" : "monthly";
-    setOrder(prev => ({...prev, plan: {...prev.plan, frequency: toggleFrequency}}));
+    setOrder(prev => ({...prev, plan: {id: 0, planName: "", price: 0, frequency: toggleFrequency}}));
   }
 
   return (
@@ -24,7 +23,7 @@ export const SelectPlan = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-3">
         {plans.map((plan) => (
-          <Plan plan={plan} key={plan.id} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
+          <Plan plan={plan} key={plan.id}/>
         ))}
       </div>
       <div className="mt-5 flex items-center justify-center gap-5 rounded-lg bg-neutral3 p-3 font-bold">
