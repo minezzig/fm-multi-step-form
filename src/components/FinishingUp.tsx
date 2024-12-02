@@ -1,13 +1,7 @@
+import { useOrder } from "../context/OrderContext";
+
 export const FinishingUp = () => {
-  //!static order
-  const order = {
-    info: "",
-    plan: {planName:"Arcade", price: 90, frequency: "Yearly"},
-    addOns: [
-      { addOn: "Online service", price: 10 },
-      { addOn: "Larer stroage", price: 20 },
-    ],
-  };
+  const {order} = useOrder();
 
   // calculate total price
   const calcTotal = () =>
@@ -31,7 +25,7 @@ export const FinishingUp = () => {
             <div className="text-neutral1 underline hover:text-primary2"><a href="">Change</a></div>
           </div>
           <div className="text-primary font-bold">
-            +${order.plan.price}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
+            +${order.plan.price}/{order.plan.frequency === "monthly" ? "mo" : "yr"}
           </div>
         </div>
         <hr />
@@ -40,16 +34,16 @@ export const FinishingUp = () => {
             <div className="flex items-center justify-between" key={addOn.addOn}>
               <div className="text-neutral1">{addOn.addOn}</div>
               <div className="text-primary1">
-                +${addOn.price}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
+                +${addOn.price}/{order.plan.frequency === "monthly" ? "mo" : "yr"}
               </div>
             </div>
           ))}
         </div>
       </div>
       <div className="flex items-center justify-between px-3 py-5">
-        <div className="text-neutral1">Total (per {order.plan.frequency === "Monthly" ? "month" : "year"})</div>
+        <div className="text-neutral1">Total (per {order.plan.frequency === "monthly" ? "month" : "year"})</div>
         <div className="text-primary2 font-bold">
-          +${calcTotal()}/{order.plan.frequency === "Monthly" ? "mo" : "yr"}
+          +${calcTotal()}/{order.plan.frequency === "monthly" ? "mo" : "yr"}
         </div>
       </div>
     </>

@@ -14,7 +14,7 @@ interface OrderContextType {
 const defaultOrder = {
   info: { name: "", email: "", phone: "" },
   plan: { planName: "", price: 0, frequency: "monthly" },
-  addOns: [],
+  addOns: []
 };
 
 //create context
