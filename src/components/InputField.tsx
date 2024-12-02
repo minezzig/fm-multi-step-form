@@ -3,12 +3,11 @@ import { useOrder } from "../context/OrderContext";
 import { InputFieldProps } from "../types/types";
 
 const InputField = ({label, placeholder, name}: InputFieldProps) => {
-  const [error, setError] = useState(false);
-  const {order, setOrder} = useOrder();
+  const [error, setError] = useState(true);
+  const {setOrder} = useOrder();
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOrder(prev => ({...prev, info: {...prev.info, [e.target.name]: e.target.value}}))
-    console.log(order);
 }
   
   return (

@@ -15,7 +15,7 @@ export const Plan = ({ plan }: PlanProps) => {
     setOrder(prev => ({...prev, plan: orderPlanObject}));
   }
   return (
-    <div className={`flex-1 rounded-lg border  bg-neutral3 p-3 flex md:flex-col flex-row gap-3 cursor-pointer ${order.plan.id === plan.id ? "border-primary2" : "border-primary3"}`} 
+    <div className={`flex-1 rounded-lg border   p-3 flex md:flex-col flex-row gap-3 cursor-pointer hover:border-primary2 transition-all ${order.plan.id === plan.id ? "border-primary2 bg-neutral3" : "border-primary3"}`} 
     onClick={() => handleSelectPlan(plan)}>
       <div>
         <img src={plan.icon} alt={plan.plan} />

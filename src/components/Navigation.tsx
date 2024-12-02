@@ -1,8 +1,25 @@
 import { Button } from "./Button";
 import { NavigationProps } from "../types/types";
+import { useOrder } from "../context/OrderContext";
 
 const Navigation = ({ step, setStep }: NavigationProps) => {
+  const { order } = useOrder();
+
   const handleNextStep = () => {
+    // check for errors
+    if (step === 1) {
+      if (!order.info.name) {
+        return;
+      }
+      if (!order.info.email) {
+        return;
+      }
+      if (!order.info.phone) {
+        return;
+      }
+    }
+
+    // if no errors, proceed to next step
     setStep((prev) => (prev < 4 ? prev + 1 : prev));
   };
 
@@ -20,7 +37,7 @@ const Navigation = ({ step, setStep }: NavigationProps) => {
         <Button
           text={"Go Back"}
           action={handlePrevStep}
-          className="bg-transparent"
+          className={"bg-transparent text-blue-400"}
         />
       )}
       <div className="ml-auto">
