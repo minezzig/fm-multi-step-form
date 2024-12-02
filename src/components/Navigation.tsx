@@ -1,9 +1,6 @@
 import { Button } from "./Button";
+import { NavigationProps } from "../types/types";
 
-interface NavigationProps {
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-}
 const Navigation = ({ step, setStep }: NavigationProps) => {
   const handleNextStep = () => {
     setStep((prev) => (prev < 4 ? prev + 1 : prev));

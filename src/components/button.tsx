@@ -1,8 +1,4 @@
-interface ButtonProps {
-  text: string;
-  action: () => void;
-  className?: string;
-}
+import { ButtonProps } from "../types/types";
 
 export const Button = ({ text, action, className = "" }: ButtonProps) => {
   return (

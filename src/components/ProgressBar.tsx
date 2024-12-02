@@ -1,8 +1,4 @@
-interface ProgressBarProps {
-  active: boolean;
-  step: number;
-  title: string;
-}
+import { ProgressBarProps } from "../types/types";
 
 export const ProgressBar = ({ active, step, title }: ProgressBarProps) => {
   return (

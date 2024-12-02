@@ -1,21 +1,11 @@
 import { useOrder } from "../context/OrderContext";
-
-interface AddOn {
-  id: number;
-  item: string;
-  description: string;
-  price: { monthly: number; yearly: number };
-}
-
-interface AddOnProps {
-  addOn: AddOn;
-}
+import { AddOnType, AddOnProps } from "../types/types";
 
 export const AddOn = ({ addOn }: AddOnProps) => {
   const { order, setOrder } = useOrder();
 
   // add addOn to order, or remove if unselected
-  const handleSelectAddOn = (addOn: AddOn) => {
+  const handleSelectAddOn = (addOn: AddOnType) => {
     const newAddOn = {
       id: addOn.id,
       addOn: addOn.item,

@@ -1,23 +1,14 @@
 import { useOrder } from "../context/OrderContext";
+import { PlanType, PlanProps } from "../types/types";
 
-interface Plan {
-  id: number;
-  plan: string;
-  price: { yearly: number; monthly: number };
-  icon: string;
-}
-
-interface PlanProps {
-  plan: Plan;
-}
 
 export const Plan = ({ plan }: PlanProps) => {
   const {order, setOrder} = useOrder();
+  //destructure freqency
   const {frequency} = order.plan;
 
-  console.log(order)
   // hanlde selected a plan
-  const handleSelectPlan = (plan: Plan) => {
+  const handleSelectPlan = (plan: PlanType) => {
     const orderPlanObject = {id: plan.id, planName: plan.plan, price: plan.price[frequency], frequency: frequency}
 
     // add to order object context

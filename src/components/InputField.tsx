@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { useOrder } from "../context/OrderContext";
-
-interface InputFieldProps {
-    label: string;
-    placeholder: string;
-    name: string;
-}
+import { InputFieldProps } from "../types/types";
 
 const InputField = ({label, placeholder, name}: InputFieldProps) => {
   const [error, setError] = useState(false);
