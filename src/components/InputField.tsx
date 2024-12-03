@@ -2,7 +2,7 @@ import { useOrder } from "../context/OrderContext";
 import { InputFieldProps } from "../types/types";
 
 const InputField = ({label, placeholder, name, error}: InputFieldProps) => {
-  const {setOrder} = useOrder();
+  const {order, setOrder} = useOrder();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOrder(prev => ({...prev, info: {...prev.info, [e.target.name]: e.target.value}}))
@@ -15,9 +15,10 @@ const InputField = ({label, placeholder, name, error}: InputFieldProps) => {
         <div className={`text-primary5 text-xs font-bold ${error ? "block" : "hidden"}`}>This field is required</div>
       </div>
       <input
-        className={`border-neutral2 rounded-md border p-2 focus:outline-primary2 ${error && "border-primary5"}`}
+        className={`cursor-pointer border-neutral2 rounded-md border p-2 focus:outline-primary2 ${error && "border-primary5"}`}
         placeholder={placeholder}
         name={name}
+        value={order.info[name]}
         onChange={handleOnChange}
       />
     </div>

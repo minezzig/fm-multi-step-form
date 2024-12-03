@@ -20,12 +20,12 @@ export const FinishingUp = ({setStep}: FinishingUpProps) => {
       <div className="mt-5 flex flex-col gap-5 rounded-lg bg-neutral3 p-3 md:p-5">
         <div className="flex items-center justify-between">
           <div>
-            <div>
+            <div className="font-bold text-primary1">
               {order.plan.planName} ({order.plan.frequency})
             </div>
             <div className="text-neutral1 underline hover:text-primary2 cursor-pointer" onClick={() => setStep(2)}>Change</div>
           </div>
-          <div className="text-primary font-bold">
+          <div className="text-primary font-bold text-primary1">
             +${order.plan.price}/{order.plan.frequency === "monthly" ? "mo" : "yr"}
           </div>
         </div>
@@ -43,7 +43,7 @@ export const FinishingUp = ({setStep}: FinishingUpProps) => {
       </div>
       <div className="flex items-center justify-between px-3 py-5">
         <div className="text-neutral1">Total (per {order.plan.frequency === "monthly" ? "month" : "year"})</div>
-        <div className="text-primary2 font-bold">
+        <div className="text-primary2 font-bold text-lg">
           +${calcTotal()}/{order.plan.frequency === "monthly" ? "mo" : "yr"}
         </div>
       </div>

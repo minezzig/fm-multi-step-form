@@ -1,15 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-
-interface OrderType {
-  info: { name: string; email: string; phone: string };
-  plan: { id: number; planName: string; price: number; frequency: "monthly" | "yearly" };
-  addOns: {id: number; addOn: string, price: number}[];
-}
-
-interface OrderContextType {
-  order: OrderType;
-  setOrder: React.Dispatch<React.SetStateAction<OrderType>>;
-}
+import { OrderType, OrderContextType } from "../types/types";
 
 const defaultOrder = {
   info: { name: "", email: "", phone: "" },

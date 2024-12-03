@@ -26,12 +26,12 @@ const {order} = useOrder();
         <Button
           text={"Go Back"}
           action={handlePrevStep}
-          className={"bg-transparent text-blue-400"}
+          className={"bg-transparent text-gray-400 hover:text-primary1"}
         />
       )}
       <div className="ml-auto">
         {step < 4 ? (
-          <Button text={"Next Step"} action={handleNextStep} />
+          <Button text={"Next Step"} action={handleNextStep}/>
         ) : step === 4 ? (
           <Button text={"Submit"} action={handleSubmit} />
         ) : null}

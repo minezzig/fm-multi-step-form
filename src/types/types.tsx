@@ -32,7 +32,7 @@ export interface ButtonProps {
   export interface InputFieldProps {
     label: string;
     placeholder: string;
-    name: string;
+    name: string
     error: string;
 }
 
@@ -60,4 +60,16 @@ export interface AddOnProps {
 
 export interface FinishingUpProps {
   setStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+
+export interface OrderType {
+  info: { name: string; email: string; phone: string };
+  plan: { id: number; planName: string; price: number; frequency: "monthly" | "yearly" };
+  addOns: {id: number; addOn: string, price: number}[];
+}
+
+export interface OrderContextType {
+  order: OrderType;
+  setOrder: React.Dispatch<React.SetStateAction<OrderType>>;
 }

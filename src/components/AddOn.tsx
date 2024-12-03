@@ -26,7 +26,7 @@ export const AddOn = ({ addOn }: AddOnProps) => {
 
   return (
     <div
-      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border hover:border-primary2 transition-all ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2 bg-neutral3 " : "border-primary3"} p-3 cursor-pointer`}
+      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border hover:border-primary2 transition-all ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2 bg-neutral3 " : "border-neutral2"} p-3 cursor-pointer`}
       onClick={() => handleSelectAddOn(addOn)}
     >
       <input

@@ -66,7 +66,7 @@ export default function Card() {
         <div className="z-0 absolute left-0 top-0 w-full md:static md:min-w-[275px] md:max-w-[275px]">
           <Header step={step}/>
         </div>
-        <div className="flex h-full w-full flex-col">
+        <div className="flex h-full w-full flex-col pr-16">
           {renderStep()}
           <Navigation step={step} setStep={setStep} verifyInput={verifyInput}/>
         </div>
