@@ -26,13 +26,15 @@ export const AddOn = ({ addOn }: AddOnProps) => {
 
   return (
     <div
-      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border hover:border-primary2 transition-all ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2 bg-neutral3 " : "border-neutral2"} p-3 cursor-pointer`}
+      className={`flex flex-1 flex-row items-center gap-3 rounded-lg border transition-all hover:border-primary2 ${order.addOns.find((entry) => entry.id === addOn.id) ? "border-primary2 bg-neutral3" : "border-neutral2"} cursor-pointer p-3`}
       onClick={() => handleSelectAddOn(addOn)}
     >
       <input
         type="checkbox"
         className="h-5 w-5 accent-primary2"
-        checked={order.addOns.find((entry) => entry.id === addOn.id) ? true : false}
+        checked={
+          order.addOns.find((entry) => entry.id === addOn.id) ? true : false
+        }
         readOnly
       />
       <div>

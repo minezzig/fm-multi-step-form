@@ -1,3 +1,21 @@
+export interface OrderType {
+  info: InfoType;
+  plan: { id: number; planName: string; price: number; frequency: "monthly" | "yearly" };
+  addOns: {id: number; addOn: string, price: number}[];
+}
+
+export interface InfoType {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+export interface OrderContextType {
+  order: OrderType;
+  setOrder: React.Dispatch<React.SetStateAction<OrderType>>;
+}
+
+
 export interface ButtonProps {
     text: string;
     action: () => void;
@@ -29,10 +47,11 @@ export interface ButtonProps {
   export interface PersonalInfoProps {
     error: ErrorType;
   }
+  
   export interface InputFieldProps {
     label: string;
     placeholder: string;
-    name: string
+    name: keyof InfoType;
     error: string;
 }
 
@@ -60,16 +79,4 @@ export interface AddOnProps {
 
 export interface FinishingUpProps {
   setStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-
-export interface OrderType {
-  info: { name: string; email: string; phone: string };
-  plan: { id: number; planName: string; price: number; frequency: "monthly" | "yearly" };
-  addOns: {id: number; addOn: string, price: number}[];
-}
-
-export interface OrderContextType {
-  order: OrderType;
-  setOrder: React.Dispatch<React.SetStateAction<OrderType>>;
 }

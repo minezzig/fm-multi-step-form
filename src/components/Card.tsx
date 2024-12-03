@@ -8,8 +8,7 @@ import { Thankyou } from "./Thankyou";
 import { useState } from "react";
 import { useOrder } from "../context/OrderContext";
 import { ErrorType } from "../types/types";
-import { emailValidator } from "../utils/emailValidator";
-import { phoneValidator } from "../utils/phoneValidator";
+import { emailValidator, phoneValidator } from "../utils";
 
 export default function Card() {
   const [step, setStep] = useState<number>(1);

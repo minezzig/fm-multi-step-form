@@ -1,13 +1,15 @@
 import { useOrder } from "../context/OrderContext";
 import { InputFieldProps } from "../types/types";
 
+
 const InputField = ({label, placeholder, name, error}: InputFieldProps) => {
   const {order, setOrder} = useOrder();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOrder(prev => ({...prev, info: {...prev.info, [e.target.name]: e.target.value}}))
 }
-  
+
+
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between">
