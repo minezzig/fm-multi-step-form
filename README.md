@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Multi-step form solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="./design/desktop-preview.jpg" alt="desktop" width="400"/>
 
-## Expanding the ESLint configuration
+## Table of contents
+ 
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Overview
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### The challenge
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Users should be able to:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Links
+
+Live: [Multi-step form](https://fm-multi-step-form-gm.vercel.app/)
+Code: [github repo](https://github.com/minezzig/fm-multi-step-form)
+
+## My process
+
+### Built with
+
+- HTML
+- JavaScript
+- TypeScript
+- Tailwind CSS
+- React
+- Mobile-first workflow
+
+### What I learned
+Wow, this was a whirlwind, and I learned a lot! This was the first time I worked on something like this. One thing I struggled with, which now seems quite simple, was the responsive layout navigation. I was determined to make it work solely using CSS. I had issues with overlapping and trying to use absolute positioning to take the elements out of the div, but also trying to have its parent div overlap. At the very end, I realized I could just conditionally render the components depending on the screen size!
+
+Another thing that was new was working on a form over multiple pages. Initially, I was determined to make the "Next" button submit the information and start creating the order object. I then realized that I could just use onChange and update the object as the user fills out the form.
+
+I also used this project as an opportunity to continue working on my TypeScript skills and file naming and management.
+### Continued development
+As my initial attempt was using only CSS to change the responsive layout, I'd like to go back and clean things up so that it is simply conditionally rendering the components. I've added some very simple transitions but would love to bring it to life a little more. Overall, I'm very happy with this project and feel like it is a good example of a real-world scenario.
