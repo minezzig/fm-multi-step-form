@@ -30,11 +30,11 @@ export default function Card() {
         isValid = false;
       }
       if (!order.info.email || !emailValidator(order.info.email)) {
-        newError.email = "This field is required";
+        newError.email = !order.info.email ? "This field is required" : "A valid email is required";
         isValid = false;
       }
       if (!order.info.phone || !phoneValidator(order.info.phone)) {
-        newError.phone = "This field is required";
+        newError.phone = !order.info.phone ? "This field is required" : "A valid phone number is required";
         isValid = false;
       }
     }
@@ -49,7 +49,7 @@ export default function Card() {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <PersonalInfo error={error} />;
+        return <PersonalInfo error={error} setError={setError}/>;
       case 2:
         return <SelectPlan />;
       case 3:
@@ -59,7 +59,7 @@ export default function Card() {
       case 5:
         return <Thankyou />;
       default:
-        return <PersonalInfo error={error} />;
+        return <PersonalInfo error={error} setError={setError}/>;
     }
   };
 
